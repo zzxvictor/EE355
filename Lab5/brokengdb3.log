@@ -1,0 +1,70 @@
+GNU gdb (Ubuntu 7.7.1-0ubuntu5~14.04.2) 7.7.1
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) break 63
+Breakpoint 1 at 0x400dcf: file brokengdb3.cpp, line 63.
+(gdb) break 78
+Breakpoint 2 at 0x400e5c: file brokengdb3.cpp, line 78.
+(gdb) run
+Starting program: /home/student/EE355/Lab5/a.out 
+Creating Node, 1 are in existence right now
+Creating Node, 2 are in existence right now
+Creating Node, 3 are in existence right now
+Creating Node, 4 are in existence right now
+The fully created list is:
+4
+3
+2
+1
+
+Now removing elements:
+
+Breakpoint 1, LinkedList<int>::remove (this=0x603010, 
+    item_to_remove=@0x7fffffffdeb4: 4) at brokengdb3.cpp:63
+63	            head_ = new Node<T>(marker->value(), marker->next());
+(gdb) print head_v[Kvalue()
+(gdb) print head_value()-value()>value()
+$1 = (const int &) @0x603090: 4
+(gdb) next
+Creating Node, 5 are in existence right now
+65	            delete marker;
+(gdb) nextprint head_->value()
+$2 = (const int &) @0x6030b0: 4
+(gdb) print head_->value()[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kcontinue
+Continuing.
+Destroying Node, 4 are in existence right now
+4
+3
+2
+1
+
+
+Breakpoint 2, LinkedList<int>::remove (this=0x603010, 
+    item_to_remove=@0x7fffffffdeb4: 1) at brokengdb3.cpp:78
+78	      marker = 0;  // reset the marker
+(gdb) co[K[Knext
+79	      temp = marker;
+(gdb) continue
+Continuing.
+
+Program received signal SIGSEGV, Segmentation fault.
+0x0000000000400f60 in Node<int>::next (this=0x0) at brokengdb3.cpp:22
+22	  Node<T>* next () const { return next_; }
+(gdb) qu[K[Kcont[Ktinue
+Continuing.
+
+Program terminated with signal SIGSEGV, Segmentation fault.
+The program no longer exists.
+(gdb) quit
