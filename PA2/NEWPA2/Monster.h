@@ -4,7 +4,6 @@
 #define MONSTER_HP 100
 #define MONSTER_ATTACK 20
 #define MONSTER_DEFENSE 1
-#define MONSTERFIRSTNAME "Prof. Shahin No."
 
 class Hunter;//FORWARD DECLARATION
 class Palico;
@@ -18,11 +17,13 @@ class Monster
       int age;
       std::string lastName;
       std::string firstName;
+      std::string gender;
 
    public:
       Monster();
       
       void AttackHunter(Hunter *hunter);
+      void AttackPalico(Palico *palico);
       bool CheckDead();
 
       int getHP();

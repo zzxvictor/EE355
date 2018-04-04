@@ -5,18 +5,44 @@ Hunter::Hunter()
 {
       energy = HUNTER_ENERGY;
       HP = HUNTER_HP;
+
+      //add equipments 
       attack = HUNTER_ATTACK + swo.getAttack();
       defense = HUNTER_DEFENSE + equ.getDefense();
-      age = rand()%50;
-      int temp = rand()%11;
-      std::string namePool[5] = {"LOL", "OMG", "FYI", "LMAFO", "YO"};
-      if (temp > 5)
+
+      //get user Input
+      
+      while(1)
+      {
+         std::cout<<"Input the age of Hunter"<<std::endl;
+         std::cin>>age;
+         if (!std::cin)
+         {
+            std::cout<<"bad input, try again!"<<std::endl;
+         }
+         else
+         {
+            if ((age>=18)&&(age<=70))
+               break;
+         }
+      }
+      std::cout<<"please input the firstName of Hunter:" <<std::endl;
+      std::cin>>firstName;
+      std::cout<<"please input the lastName of Hunter:" <<std::endl;
+      std::cin>>lastName;
+
+      int temp = rand()%10;
+      if (temp < 5)
          gender = "Male";
       else
          gender = "Female";
-      firstName = HUNTERFIRSTNAME;
-      lastName = namePool[rand()%5];
+      //randomly generate color
+      std::string colorPool[5] = {"Schwarz","Blau", "Rot", "Geld" , "Gruen"};
+      color = colorPool[rand()%5];
+      
 }
+
+
 //methods 
 void Hunter::AttackMonsters(Monster *rathalos)
 {
@@ -36,6 +62,7 @@ void Hunter::AttackMonsters(Monster *rathalos)
 
 void Hunter::DefendMonsters(Monster *rathalos)
 {
+   //only valid when monster is still alive
    if(rathalos->getHP()>0)
    {
       if(2*defense< rathalos->getAttack())
@@ -47,6 +74,18 @@ void Hunter::DefendMonsters(Monster *rathalos)
       else
          std::cout<<"rathalos attacked your. your defense is higher than Rathalos's attack. No HP drops<<"<<std::endl;
    }
+}
+
+void Hunter::DefendMonsters(int monsterAttack)
+{
+   if(2*defense< monsterAttack)
+      {
+         int HP2 = HP;
+         HP = HP2 - (monsterAttack - 2*defense);
+         std::cout<<"You are attacked by rathalos. your HP drops from "<<HP2<<" to "<<HP<<std::endl;
+      }
+      else
+         std::cout<<"rathalos attacked your. your defense is higher than Rathalos's attack. No HP drops<<"<<std::endl;
 }
 
 bool Hunter::CheckDead()
@@ -82,6 +121,8 @@ int Hunter::getDefense()
 {
    return defense;
 }
+
+
 std::string Hunter::getName()
 {
    return firstName+lastName;
@@ -97,6 +138,19 @@ std::string Hunter::getGender()
    return gender;
 }
 
+std::string Hunter::getColor()
+{
+   return color;
+}
+
+int Hunter::getX()
+{
+   return x;
+}
+int Hunter::getY()
+{
+   return y;
+}
 
 //setter functions
 void Hunter::setEnergy(int newEnergy)

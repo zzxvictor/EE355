@@ -2,7 +2,7 @@
 
 Item::Item()
 {
-	name = "A Random Name "
+	name = "A Random Name ";
 }
 
 Sword::Sword()

@@ -4,16 +4,16 @@
 #define ATTACKVALUE 10
 #define DEFENSEVALUE 10
 
-class item
+class Item
 {
    private:
-      string name;
+      std::string name;
    public:
-      item();
+      Item();
 };
 
 
-class Sword : public item 
+class Sword : public Item 
 {
    private:
       int attack;
@@ -22,7 +22,7 @@ class Sword : public item
 
 };
 
-class Equipment : public item 
+class Equipment : public Item 
 {
    private:
       int defense;

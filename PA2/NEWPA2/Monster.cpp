@@ -4,36 +4,68 @@
 // constructor 
 Monster::Monster()
 {
-   std::string namePool[10] = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
    HP = MONSTER_HP;
    attack = MONSTER_ATTACK;
    defense = MONSTER_DEFENSE;
-   age = rand()%10;
-   lastName = namePool[age];
-   firstName = MONSTERFIRSTNAME;
+
+   //get user Input
+   
+         while(1)
+      {
+         std::cout<<"Input the age of Monster"<<std::endl;
+         std::cin>>age;
+         if (!std::cin)
+         {
+            std::cout<<"bad input, try again!"<<std::endl;
+         }
+         else
+         {
+            if ((age>=18)&&(age<=70))
+               break;
+         }
+      }
+      std::cout<<"please input the firstName of Monster:" <<std::endl;
+      std::cin>>firstName;
+      std::cout<<"please input the lastName of Monster:" <<std::endl;
+      std::cin>>lastName;
+      
+      int temp = rand()%10;
+      if (temp < 5)
+         gender = "Male";
+      else
+         gender = "Female";
+   
 }
+
 
 
 void Monster::AttackHunter(Hunter *hunter)
 {
    if(HP>0)//if monster's HP is lower than 0, do not attack
    {
-      if(attack>hunter->getDefense())
-      {
-         int hunterHP = hunter->getHP();
-         int hunterHP2 = hunterHP - (attack- hunter->getDefense());
-         hunter->setHP(hunterHP2);
-         std::cout<<"Rathalos attacked you. your HP drops from "<<hunterHP<<" to "<<hunterHP2<<std::endl;
-      }
-      else
-         std::cout<<"rathalos attacked you. your defense is higher than its attack. No HP drops<<"<<std::endl;
+      hunter->DefendMonsters(attack);
+
    }
    else
       std::cout<<"Monster is dead"<<std::endl;
-      
-	std::cout<<"Monster::AttackHunter needs implementation!"<<std::endl;
 }
 
+void Monster::AttackPalico(Palico *palico)
+{
+   if(HP>0)
+   {
+      int PalicoHP = palico->getHP();
+      if(PalicoHP>0)
+      {
+         int PalicoHP2 = PalicoHP - attack;
+         palico->setHP(PalicoHP2);
+         std::cout<<"Rathalos attacked palico. its HP drops from "<<PalicoHP<<" to "<<PalicoHP2<<std::endl;
+      }
+   }
+   else
+      std::cout<<"Monster is dead<<"<<std::endl;
+
+}
 
 bool Monster::CheckDead()
 {

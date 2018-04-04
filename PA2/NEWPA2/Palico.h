@@ -3,7 +3,6 @@
 
 #define PALICO_HP 50
 #define PALICO_ATTACK 5
-#define PALICOFIRSTNAME "Yao Xiao "
 #define PALICO_CURE 5
 
 class Monster;//FORWARD DECLRATION
@@ -16,10 +15,12 @@ class Palico
       int HP;
       int attack;
       int age;
+      int x;
+      int y;
 
       std::string gender;
-      Sword swo;
       std::string color;
+      Sword swo;
       std::string lastName;
       std::string firstName;
 

@@ -19,4 +19,7 @@ int main ()
 	cout<<Victor.getAttack()<<endl;
 	cout<<Victor.getDefense()<<endl;
 	cout<<Victor.getName()<<endl;
+
+	Hunter *vic = new Hunter();
+	me.attackHunter(vic);
 }

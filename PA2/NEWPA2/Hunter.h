@@ -5,7 +5,6 @@
 #define HUNTER_ENERGY 100
 #define HUNTER_ATTACK 10
 #define HUNTER_DEFENSE 4
-#define HUNTERFIRSTNAME "Mighty Victor "
 class Monster;//FORWARD DECLARATION
 class Sword;
 class Equipment;
@@ -19,17 +18,20 @@ class Hunter
       int defense;
       Sword swo;
       Equipment equ;
-      int coordinate[2];
-      char color;
+      int x;
+      int y;
+      int age;
+      std::string color;
       std::string firstName;
       std::string lastName;
       std::string gender;
-      int age;
+      
 
    public:
       Hunter();
       void AttackMonsters(Monster *rathalos);
       void DefendMonsters(Monster *rathalos);
+      void DefendMonsters(int monsterAttack);
       bool CheckDead();
       int getEnergy();
       int getHP();
@@ -38,7 +40,12 @@ class Hunter
       std::string getName();
       int getAge();
       std::string getGender();
-      
+      int getX();
+      int getY();
+      std::string getColor();
+
+
+
       void setEnergy(int newEnergy);
       void setHP(int newHP);
       void setAttack(int newAttack);
