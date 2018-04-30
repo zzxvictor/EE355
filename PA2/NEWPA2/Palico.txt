@@ -1,0 +1,6 @@
+FastPalico5, Male, 71, HP: 15, Sword: 10
+FastPalico4, Male, 5, HP: 15, Sword: 10
+InvinciblePalico5, Male, 22, HP: 15, Sword: 10
+InvinciblePalico7, Female, 86, HP: 15, Sword: 10
+FastPalico2, Male, 22, HP: 15, Sword: 10
+CruelPalico7, Female, 17, HP: 15, Sword: 10

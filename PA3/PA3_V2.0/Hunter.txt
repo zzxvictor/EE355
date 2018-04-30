@@ -1,0 +1,6 @@
+Fast_Hunter1, Male, 30, HP: -8,Energy: 100,HP: 20,Defense: 14, Sword: Theta(10), Equipment: Gamma(10)
+Old_PHunter2, Female, 38, HP: 100,Energy: 100,HP: 20,Defense: 14, Sword: Beta(10), Equipment: Theta(10)
+Fast_Hunter5, Male, 41, HP: 88,Energy: 100,HP: 20,Defense: 14, Sword: Theta(10), Equipment: Gamma(10)
+Invincible_PHunter2, Male, 49, HP: 28,Energy: 100,HP: 20,Defense: 14, Sword: Beta(10), Equipment: Gamma(10)
+Cruel_Hunter6, Female, 55, HP: 100,Energy: 100,HP: 20,Defense: 14, Sword: Gamma(10), Equipment: Beta(10)
+Mighty_Hunter1, Male, 68, HP: 100,Energy: 100,HP: 20,Defense: 14, Sword: Alpha(10), Equipment: Beta(10)

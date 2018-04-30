@@ -29,7 +29,7 @@
 	#include "bmplib.h"
 	#include "runGame.h"
 	#include "Champion.h"
-	#include "HunterBook2.h"
+	#include "HunterBook.h"
 
 
 #endif

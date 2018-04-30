@@ -14,22 +14,19 @@
 	#include <vector>
 	#include <cmath>
 	#include <algorithm>
-	#include <forward_list>
 	//my files
 	#include "Item.h"
 	#include "Hunter.h"   
 	#include "Monster.h"
 	#include "Palico.h"
 	#include "Point.h"
-	//#include "run.h"
 	#include "Monsterbook.h"
-	//#include "HunterBook.h"
+	#include "HunterBook.h"
 	#include "PalicoBook.h"
 	#include "GUI.h"
 	#include "bmplib.h"
 	#include "runGame.h"
 	#include "Champion.h"
-	#include "HunterBook2.h"
 
 
 #endif

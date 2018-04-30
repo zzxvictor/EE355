@@ -1,0 +1,6 @@
+Old_Hunter1, Female, 21, HP: 40,Energy: 100,HP: 20,Defense: 14, Sword: Beta(10), Equipment: Beta(10)
+Cruel_Hunter3, Female, 29, HP: 28,Energy: 100,HP: 20,Defense: 14, Sword: Theta(10), Equipment: Gamma(10)
+Cruel_Hunter3, Female, 29, HP: 28,Energy: 100,HP: 20,Defense: 14, Sword: Theta(10), Equipment: Gamma(10)
+Invincible_Hunter1, Male, 48, HP: -8,Energy: 100,HP: 20,Defense: 14, Sword: Beta(10), Equipment: Theta(10)
+Old_Hunter3, Female, 56, HP: 100,Energy: 100,HP: 20,Defense: 14, Sword: Beta(10), Equipment: Alpha(10)
+Cruel_Hunter5, Female, 64, HP: 100,Energy: 100,HP: 20,Defense: 14, Sword: Theta(10), Equipment: Theta(10)

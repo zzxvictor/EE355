@@ -15,6 +15,7 @@
 	#include <cmath>
 	#include <algorithm>
 	#include <forward_list>
+	#include <thread>
 	//my files
 	#include "Item.h"
 	#include "Hunter.h"   
@@ -29,7 +30,7 @@
 	#include "bmplib.h"
 	#include "runGame.h"
 	#include "Champion.h"
-	#include "HunterBook2.h"
+	#include "HunterBook.h"
 
 
 #endif

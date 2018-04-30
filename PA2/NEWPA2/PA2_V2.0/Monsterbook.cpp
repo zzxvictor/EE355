@@ -5,6 +5,7 @@
 Monsterbook::Monsterbook()
 {
 	header = NULL;
+	listSize = 0;
 }
 
 void Monsterbook::add()
@@ -17,7 +18,7 @@ void Monsterbook::add()
 		;
 	else
 	{
-		if ((insertPlace == header)&&(getListSize() == 0))
+		if ((insertPlace == header)&&(listSize == 0))
 		{
 			newNode->next = header;
 			header = newNode;
@@ -32,6 +33,7 @@ void Monsterbook::add()
 			if (newNode->next != NULL)
 				newNode->next->previous = newNode;
 		}
+		listSize++;
 		//std::cout<<"item added!"<<std::endl;
 	}
 
@@ -47,7 +49,7 @@ void Monsterbook::add(int x)
 		;
 	else
 	{
-		if ((insertPlace == header)&&(getListSize() == 0))
+		if ((insertPlace == header)&&(listSize == 0))
 		{
 			newNode->next = header;
 			header = newNode;
@@ -62,6 +64,7 @@ void Monsterbook::add(int x)
 			if (newNode->next != NULL)
 				newNode->next->previous = newNode;
 		}
+		listSize++;
 		//std::cout<<"item added!"<<std::endl;
 	}
 
@@ -72,6 +75,7 @@ void Monsterbook::remove(std::string item)
 {
 	//search 
 	struct Node *pointer = header;
+	std::cout<<"Monster remove start"<<std::endl;
 	if (pointer == NULL)
 		std::cout<<"the list is empty, nothing to remove"<<std::endl;
 	else
@@ -82,10 +86,11 @@ void Monsterbook::remove(std::string item)
 			if (itemName.compare(item) == 0)
 			{
 				//remove
-				if (getListSize() == 1)
+				if (listSize == 1)
 				{
 					delete header;
 					header = NULL;
+					listSize --;
 					break;
 				}
 				else if (pointer->next == NULL)
@@ -94,6 +99,7 @@ void Monsterbook::remove(std::string item)
 					struct Node *temp = pointer->previous;
 					delete pointer;
 					temp->next = NULL;
+					listSize --;
 					break;
 				}
 				else if(pointer->previous == NULL)
@@ -102,6 +108,7 @@ void Monsterbook::remove(std::string item)
 					header = pointer->next;
 					pointer->next->previous = NULL;
 					delete pointer;
+					listSize --;
 					break;
 
 				}
@@ -110,6 +117,7 @@ void Monsterbook::remove(std::string item)
 					pointer->next->previous = pointer->previous;
 					pointer->previous->next = pointer->next;
 					delete pointer;
+					listSize --;
 					break;
 				}
 
@@ -118,6 +126,7 @@ void Monsterbook::remove(std::string item)
 				pointer = pointer->next;
 		}
 	} 
+	std::cout<<"Monster remove end"<<std::endl;
 
 }
 
@@ -204,7 +213,7 @@ Node* Monsterbook::findPosition(struct Node * item, bool& flag)
 	std::string inputValue = item->rathalos->getName();
 	//std::cout<<"new node value:"<<inputValue<<std::endl;
 
-	if (getListSize() == 0)
+	if (listSize == 0)
 		//no element in the list
 		return header;
 	while (temp != NULL)
@@ -246,7 +255,7 @@ Node* Monsterbook::findPosition(struct Node * item, bool& flag)
 
 Monster* Monsterbook::indexAccess (int index )
 {
-	if (index >= getListSize())
+	if (index > listSize)
 	{
 		std::cout<<"index out of range !"<<std::endl;
 		return NULL;
@@ -264,17 +273,49 @@ Monster* Monsterbook::indexAccess (int index )
 
 int Monsterbook::getListSize()
 {
-	struct Node * temp = header;
-	int listSize = 0;
-	while (temp!=NULL)
-	{
-		temp = temp->next;
-		listSize++;
-	}
 	return listSize;
 }
 
 
+void Monsterbook::removeViaIndex (int index)
+{
+	if (index >= listSize)
+		std::cout<<"index out of range"<<std::endl;
+	else
+	{
+		if (index == 0)
+		{
+			//remove the first item 
+			header = header->next;
+			delete header->previous;
+			header->previous = NULL;
+		}
+		else if (index == listSize-1)
+		{
+			//remove the last item 
+			struct Node *pointer = header;
+			while(pointer->next != NULL)
+			{
+				//propagating forward
+				pointer = pointer->next;
+			}
+			pointer->previous->next = NULL;
+			delete pointer;
+		}
+		else 
+		{
+			//remove the last item 
+			struct Node *pointer = header;
+			for (int i= 0; i<index ; i++)
+			{
+				pointer = pointer ->next;
+			}
+			pointer->previous->next = pointer->next;
+			pointer->next->previous = pointer->previous;
+			delete pointer;
+		}
+	}
+}
 //testing code
 /*
 int main ()

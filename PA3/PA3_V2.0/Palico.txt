@@ -1,0 +1,6 @@
+OldPalico6, Male, 13, HP: -30, Sword: 10
+OldPalico1, Male, 34, HP: 50, Sword: 10
+CruelPalico5, Female, 29, HP: 50, Sword: 10
+FastPalico7, Male, 89, HP: -30, Sword: 10
+MightyPalico2, Female, 36, HP: 10, Sword: 10
+CruelPalico6, Male, 99, HP: 50, Sword: 10

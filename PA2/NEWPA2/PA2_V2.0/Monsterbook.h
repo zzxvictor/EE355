@@ -23,6 +23,7 @@ class Monsterbook
 {
 	private:
 		struct Node *header;
+		int listSize;
 	public:
 		Monsterbook();
 		void add();
@@ -34,6 +35,7 @@ class Monsterbook
 		Node *findPosition(struct Node * item, bool& flag);
 		Monster* indexAccess (int index );
 		int getListSize();
+		void removeViaIndex (int index);
 
 };
 
